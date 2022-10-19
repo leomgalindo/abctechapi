@@ -10,3 +10,13 @@ INSERT INTO assistances (description, name) VALUES ('Substituição de fiação 
 INSERT INTO assistances (description, name) VALUES ('Reparo sem necessidade de compra de peças', 'Manutenção em fogão');
 INSERT INTO assistances (description, name) VALUES ('Reparo sem necessidade de compra de peças', 'Manutenção em geladeira');
 INSERT INTO assistances (description, name) VALUES ('Reparo sem necessidade de compra de peças', 'Manutenção em máquina de lavar');
+INSERT INTO assistances (description, name) VALUES ('Troca do painel digital da geladeira', 'Manutenção em geladeira');
+INSERT INTO assistances (description, name) VALUES ('Manutenção no motor da geladeira', 'Manutenção em geladeira');
+INSERT INTO assistances (description, name) VALUES ('Troca do motor da máquina de lavar', 'Manutenção em máquina de lavar');
+INSERT INTO assistances (description, name) VALUES ('Troca do cabo do gás', 'Manutenção em fogão');
+INSERT INTO assistances (description, name) VALUES ('Reparo na parte hidráulica da máquina de lavar', 'Manutenção em máquina de lavar');
+INSERT INTO assistances (description, name) VALUES ('Passagem de fiação elétrica nova', 'Fiação elétrica');
+INSERT INTO assistances (description, name) VALUES ('Passagem de fiação de internet e telefone nova', 'Fiação de internet e telefone');
+INSERT INTO assistances (description, name) VALUES ('Instalação de chuveiro elétrico', 'Instalação elétrica');
+INSERT INTO assistances (description, name) VALUES ('Instalação de antena digital', 'Instalação de antena');
+INSERT INTO assistances (description, name) VALUES ('Manutenção no cabo da internet', 'Manutenção internet');
