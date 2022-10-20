@@ -31,13 +31,10 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void saveOrder(Order order, List<Long> arrayAssists) throws Exception {
-        if(order.getOperatorId() == null ||
-                order.getAssists() == null ||
-                order.getStartOrderLocation() == null ||
-                order.getEndOrderLocation() == null
-        ){
-            throw new FieldNotFoundException("Invalid Field", "Campo vazio");
+        if(order.getOperatorId() == null) {
+            throw new FieldNotFoundException("Invalid Field", "Campo operatorID vazio");
         }
+
         ArrayList<Assistance> assistances = new ArrayList<>();
         arrayAssists.forEach( i -> {
             Optional<Assistance> assistance = assistanceRepository.findById(i);

@@ -1,6 +1,7 @@
 package br.com.fiap.abctechapi.service;
 
 
+import br.com.fiap.abctechapi.handler.exception.FieldNotFoundException;
 import br.com.fiap.abctechapi.handler.exception.MaxAssistsException;
 import br.com.fiap.abctechapi.handler.exception.MinimumAssistRequiredException;
 import br.com.fiap.abctechapi.model.Assistance;
@@ -58,6 +59,15 @@ public class OrderServiceTest {
         newOrder.setOperatorId(1234L);
 
         Assertions.assertThrows(MaxAssistsException.class, () -> orderService.saveOrder(newOrder, generate_mocks_ids(20)));
+        verify(orderRepository, times(0)).save(newOrder);
+    }
+
+    @Test
+    public void create_order_campo_operatorId_vazio() {
+        Order newOrder = new Order();
+        newOrder.setOperatorId(null);
+
+        Assertions.assertThrows(FieldNotFoundException.class, () -> orderService.saveOrder(newOrder, generate_mocks_ids(5)));
         verify(orderRepository, times(0)).save(newOrder);
     }
 
