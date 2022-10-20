@@ -1,5 +1,7 @@
 package br.com.fiap.abctechapi.service.impl;
 
+import br.com.fiap.abctechapi.handler.exception.AssistNotFoundException;
+import br.com.fiap.abctechapi.handler.exception.FieldNotFoundException;
 import br.com.fiap.abctechapi.handler.exception.MaxAssistsException;
 import br.com.fiap.abctechapi.handler.exception.MinimumAssistRequiredException;
 import br.com.fiap.abctechapi.model.Assistance;
@@ -29,11 +31,18 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void saveOrder(Order order, List<Long> arrayAssists) throws Exception {
+        if(order.getOperatorId() == null ||
+                order.getAssists() == null ||
+                order.getStartOrderLocation() == null ||
+                order.getEndOrderLocation() == null
+        ){
+            throw new FieldNotFoundException("Invalid Field", "Campo vazio");
+        }
         ArrayList<Assistance> assistances = new ArrayList<>();
         arrayAssists.forEach( i -> {
             Optional<Assistance> assistance = assistanceRepository.findById(i);
             if(!assistance.isPresent()){
-//                throw new Not();
+                throw new AssistNotFoundException("Invalid Assist", "Assitencia listada não está cadastrada");
             }
             assistances.add(assistance.get());
 
